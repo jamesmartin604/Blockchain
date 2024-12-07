@@ -1,5 +1,5 @@
 import java.security.Security;
-import java.util.Base64;
+//import java.util.Base64;
 import java.util.ArrayList;
 import com.google.gson.GsonBuilder;
 
@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder;
 public class Yeetcoin {
     
     public static ArrayList<Block> blockchain = new ArrayList<Block>();
-    public static int difficulty = 6;
+    public static int difficulty = 4;
     public static Wallet walletA;
     public static Wallet walletB;
 
@@ -27,30 +27,36 @@ public class Yeetcoin {
         //Verify the signature works and verify it is from the public key
         System.out.println("Is signature verified");
         System.out.println(transaction.verifySignature());   
-        /* 
+        
         //add our blocks to the blockchain ArrayList:
 
-        blockchain.add(new Block("Hi im the first block", "0"));
+        blockchain.add(new Block("data for first block", "0"));
         System.out.println("Trying to Mine block 1... ");
         blockchain.get(0).mineBlock(difficulty);
         
-        blockchain.add(new Block("Yo im the second block", blockchain.get(blockchain.size()-1).hash));
+        blockchain.add(new Block("data for second block", blockchain.get(blockchain.size()-1).hash));
         System.out.println("Trying to Mine block 2... ");
         blockchain.get(1).mineBlock(difficulty);
         
-        blockchain.add(new Block("Hey im the third block", blockchain.get(blockchain.size()-1).hash));
+        blockchain.add(new Block("data for the third block", blockchain.get(blockchain.size()-1).hash));
         System.out.println("Trying to Mine block 3... ");
         blockchain.get(2).mineBlock(difficulty);
+
+        /* 
+        blockchain.add(new Block("data for the fourth block", blockchain.get(blockchain.size()-1).hash));
+        System.out.println("Trying to mine block 4... ");
+        blockchain.get(2).mineBlock(difficulty);
+        */
 
         System.out.println("\nBlockchain is Valid: " + isChainValid());
 
         String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);
         System.out.println("\nThe block chain: ");
         System.out.println(blockchainJson);     
-        */   
+        
     }
 
-    /* 
+    
     public static Boolean isChainValid() {
         Block currentBlock;
         Block previousBlock;
@@ -78,5 +84,5 @@ public class Yeetcoin {
         }
         return true;        
     }
-        */
+        
 }
